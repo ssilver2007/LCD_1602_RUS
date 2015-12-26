@@ -8,9 +8,9 @@ void setup()
   // Print a message to the LCD.
   lcd.backlight();
   lcd.setCursor(2, 0);
-  lcd.print(L"РўРµРїРµСЂСЊ РјРѕР¶РЅРѕ");
+  lcd.print(L"Теперь можно");
   lcd.setCursor(3, 1);
-  lcd.print(L"РЅР° СЂСѓСЃСЃРєРѕРј");
+  lcd.print(L"по-русски");
 
 }
 
