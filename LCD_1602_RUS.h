@@ -1,7 +1,7 @@
 #include <LiquidCrystal_I2C.h>
 #include "Print.h"
 
-#define MAX_SYMBOL_COUNT 8  //РњР°РєСЃРёРјР°Р»СЊРЅРѕРµ РєРѕР»РёС‡РµСЃС‚РІРѕ РїРµСЂРµРЅР°Р·РЅР°С‡Р°РµРјС‹С… СЃРёРјРІРѕР»РѕРІ РѕС‚ 0 РґРѕ 7
+#define MAX_SYMBOL_COUNT 8  //Максимальное количество переназначаемых символов от 0 до 7
 #define BYTE 0
 
 class LCD_1602_RUS : public LiquidCrystal_I2C {
@@ -26,10 +26,10 @@ private:
   void CharSetToLCD(uint8_t *, uint8_t *);
   void ResetAllIndex();
 
-  int symbol_index;//РРЅРґРµРєСЃ СЃРёРјРІРѕР»Р° (РѕС‚ 0 РґРѕ 7)
+  int symbol_index;//Индекс символа (от 0 до 7)
   uint8_t cursor_col;
   uint8_t cursor_row;
-  //===Р‘СѓРєРІС‹====
+  //===Буквы====
   uint8_t index_rus_B;
   uint8_t index_rus_G;
   uint8_t index_rus_D;
