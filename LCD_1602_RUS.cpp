@@ -4,7 +4,7 @@
 LCD_1602_RUS :: LCD_1602_RUS(uint8_t lcd_Addr,uint8_t lcd_cols,uint8_t lcd_rows) : LiquidCrystal_I2C (lcd_Addr, lcd_cols, lcd_rows)
 {
    symbol_index = 0;
-   ResetAllIndex();//РЎР±СЂРѕСЃ Р·РЅР°С‡РµРЅРёР№ РёРЅРґРµРєСЃРѕРІ (РЅРµРёРЅРёС†РёР°Р»РёР·РёСЂРѕРІР°РЅС‹ = 255)
+   ResetAllIndex();//Сброс значений индексов (неинициализированы = 255)
 }
 void LCD_1602_RUS::clear()
 {
@@ -56,7 +56,7 @@ void LCD_1602_RUS::print(const wchar_t *_str){
   int current_char  = 0;
   int size = 0;
  
-  //РћРїСЂРµРґРµР»СЏРµРј РґР»РёРЅСѓ СЃС‚СЂРѕРєРё (РєРѕР»РёС‡РµСЃС‚РІРѕ СЃРёРјРІРѕР»РѕРІ)
+  //Определяем длину строки (количество символов)
   while(_str[size] != NULL)
   {
     size++;
@@ -66,163 +66,163 @@ void LCD_1602_RUS::print(const wchar_t *_str){
   {
     switch(_str[current_char])
     {
-      //Р СѓСЃСЃРєРёР№ Р°Р»С„Р°РІРёС‚, С‚СЂРµР±СѓСЋС‰РёР№ РЅРѕРІС‹С… СЃРёРјРІРѕР»РѕРІ
-      //Р•РґРёРЅРѕРІСЂРµРјРµРЅРЅРѕ РјРѕР¶РµС‚ Р±С‹С‚СЊ Р·Р°РјРµРЅРµРЅРѕ С‚РѕР»СЊРєРѕ 8 СЃРёРјРІРѕР»РѕРІ
-      case 1041: //Р‘
+      //Русский алфавит, требующий новых символов
+      //Единовременно может быть заменено только 8 символов
+      case 1041: //Б
         CharSetToLCD(rus_B, &index_rus_B);
       break;
-      case 1043: //Р“
+      case 1043: //Г
         CharSetToLCD(rus_G, &index_rus_G);
       break;
-      case 1044: //Р”
+      case 1044: //Д
         CharSetToLCD(rus_D, &index_rus_D);
       break;
-      case 1046: //Р–
+      case 1046: //Ж
         CharSetToLCD(rus_ZH, &index_rus_ZH);
       break;
-      case 1047: //Р—
+      case 1047: //З
         CharSetToLCD(rus_Z, &index_rus_Z);
       break;
-      case 1048: //Р
+      case 1048: //И
         CharSetToLCD(rus_I, &index_rus_I);
       break;
-      case 1049: //Р™
+      case 1049: //Й
         CharSetToLCD(rus_II, &index_rus_II);
       break;
-      case 1051: //Р›
+      case 1051: //Л
         CharSetToLCD(rus_L, &index_rus_L);
       break;
-      case 1055: //Рџ
+      case 1055: //П
         CharSetToLCD(rus_P, &index_rus_P);
       break;
-      case 1059: //РЈ
+      case 1059: //У
         CharSetToLCD(rus_U, &index_rus_U);
       break;
-      case 1060: //Р¤
+      case 1060: //Ф
         CharSetToLCD(rus_F, &index_rus_F);
       break;
-      case 1062: //Р¦
+      case 1062: //Ц
         CharSetToLCD(rus_TS, &index_rus_TS);
       break;
-      case 1063: //Р§
+      case 1063: //Ч
         CharSetToLCD(rus_CH, &index_rus_CH);
       break;
-      case 1064: //РЁ
+      case 1064: //Ш
         CharSetToLCD(rus_SH, &index_rus_SH);
       break;
-      case 1065: //Р©
+      case 1065: //Щ
         CharSetToLCD(rus_SCH, &index_rus_SCH);
       break;
-      case 1066: //РЄ
+      case 1066: //Ъ
         CharSetToLCD(rus_tverd, &index_rus_tverd);
       break;
-      case 1067: //Р«
+      case 1067: //Ы
         CharSetToLCD(rus_Y, &index_rus_Y);
       break;
-      case 1068: //Р¬
+      case 1068: //Ь
         CharSetToLCD(rus_myagk, &index_rus_myagk);
       break;
-      case 1069: //Р­
+      case 1069: //Э
         CharSetToLCD(rus_EE, &index_rus_EE);
       break;
-      case 1070: //Р®
+      case 1070: //Ю
         CharSetToLCD(rus_YU, &index_rus_YU);
       break;
-      case 1071: //РЇ
+      case 1071: //Я
         CharSetToLCD(rus_YA, &index_rus_YA);
       break;
-      case 1073: //Р±
+      case 1073: //б
         CharSetToLCD(rus_b, &index_rus_b);
       break;
-      case 1074: //РІ
+      case 1074: //в
         CharSetToLCD(rus_v, &index_rus_v);
       break;
-      case 1075: //Рі
+      case 1075: //г
         CharSetToLCD(rus_g, &index_rus_g);
       break;
-      case 1076: //Рґ
+      case 1076: //д
         CharSetToLCD(rus_d, &index_rus_d);
       break;
-      case 1105: //С‘
+      case 1105: //ё
         CharSetToLCD(rus_yo, &index_rus_yo);
       break;
-      case 1078: //Р¶
+      case 1078: //ж
         CharSetToLCD(rus_zh, &index_rus_zh);
       break;
-      case 1079: //Р·
+      case 1079: //з
         CharSetToLCD(rus_z, &index_rus_z);
       break;
-      case 1080: //Рё
+      case 1080: //и
         CharSetToLCD(rus_i, &index_rus_i);
       break;
-      case 1081: //Р№
+      case 1081: //й
         CharSetToLCD(rus_ii, &index_rus_ii);
       break;
-      case 1082: //Рє
+      case 1082: //к
         CharSetToLCD(rus_k, &index_rus_k);
       break;
-      case 1083: //Р»
+      case 1083: //л
         CharSetToLCD(rus_l, &index_rus_l);
       break;
-      case 1084: //Рј
+      case 1084: //м
         CharSetToLCD(rus_m, &index_rus_m);
       break;
-      case 1085: //РЅ
+      case 1085: //н
         CharSetToLCD(rus_n, &index_rus_n);
       break;
-      case 1087: //Рї
+      case 1087: //п
         CharSetToLCD(rus_p, &index_rus_p);
       break;
-      case 1090: //С‚
+      case 1090: //т
         CharSetToLCD(rus_t, &index_rus_t);
       break;
-      case 1092: //С„
+      case 1092: //ф
         CharSetToLCD(rus_f, &index_rus_f);
       break;
-      case 1094: //С†
+      case 1094: //ц
         CharSetToLCD(rus_ts, &index_rus_ts);
       break;
-      case 1095: //С‡
+      case 1095: //ч
         CharSetToLCD(rus_ch, &index_rus_ch);
       break;
-      case 1096: //С€
+      case 1096: //ш
         CharSetToLCD(rus_sh, &index_rus_sh);
       break;
-      case 1097: //С‰
+      case 1097: //щ
         CharSetToLCD(rus_sch, &index_rus_sch);
       break;
-      case 1098: //СЉ
+      case 1098: //ъ
         CharSetToLCD(rus_tverd_mal, &index_rus_tverd_mal);
       break;
-      case 1099: //С‹
+      case 1099: //ы
         CharSetToLCD(rus_y, &index_rus_y);
       break;
-      case 1100: //СЊ
+      case 1100: //ь
         CharSetToLCD(rus_myagk_mal, &index_rus_myagk_mal);
       break;
-      case 1101: //СЌ
+      case 1101: //э
         CharSetToLCD(rus_ee, &index_rus_ee);
       break;
-      case 1102: //СЋ
+      case 1102: //ю
         CharSetToLCD(rus_yu, &index_rus_yu);
       break;
-      case 1103: //СЏ
+      case 1103: //я
         CharSetToLCD(rus_ya, &index_rus_ya);
       break;
-      //Р СѓСЃСЃРєРёР№ Р°Р»С„Р°РІРёС‚, РёСЃРїРѕР»СЊР·СѓСЋС‰РёР№ РѕРґРёРЅР°РєРѕРІС‹Рµ СЃ Р°РЅРіР»РёР№СЃРєРёРј Р°Р»С„Р°РІРёС‚РѕРј СЃРёРјРІРѕР»С‹
-      case 1040: //Рђ
+      //Русский алфавит, использующий одинаковые с английским алфавитом символы
+      case 1040: //А
         LiquidCrystal_I2C::print("A");
       break;
-      case 1042: //Р’
+      case 1042: //В
         LiquidCrystal_I2C::print("B");
       break;
-      case 1045: //Р•
+      case 1045: //Е
         LiquidCrystal_I2C::print("E");
       break;
-      case 1025: //РЃ
+      case 1025: //Ё
         LiquidCrystal_I2C::print("E");
       break;
-      case 1050: //Рљ
+      case 1050: //К
         LiquidCrystal_I2C::print("K");
       break;
       case 1052: //M
@@ -246,10 +246,10 @@ void LCD_1602_RUS::print(const wchar_t *_str){
       case 1061: //X
         LiquidCrystal_I2C::print("X");
       break;
-      case 1072: //Р°
+      case 1072: //а
         LiquidCrystal_I2C::print("a");
       break;
-      case 1077: //Рµ
+      case 1077: //е
         LiquidCrystal_I2C::print("e");
       break;
       case 1086: //o
@@ -267,10 +267,10 @@ void LCD_1602_RUS::print(const wchar_t *_str){
       case 1093: //x
         LiquidCrystal_I2C::print("x");
       break;
-      case 0x00B0: //Р—РЅР°Рє РіСЂР°РґСѓСЃР°
+      case 0x00B0: //Знак градуса
         LiquidCrystal_I2C::write(223);
       break;
-      //РђРЅРіР»РёР№СЃРєРёР№ Р°Р»С„Р°РІРёС‚ Р±РµР· РёР·РјРµРЅРµРЅРёСЏ
+      //Английский алфавит без изменения
       default:
         LiquidCrystal_I2C::print((char)_str[current_char]);
       break;
@@ -284,20 +284,20 @@ void LCD_1602_RUS::CharSetToLCD(uint8_t *array, uint8_t *index)
 {
   uint8_t x,y;
 
-  if(*index == 255)// Р•СЃР»Рё СЃРёРјРІРѕР» РµС‰Рµ РЅРµ СЃРѕР·РґР°РЅ, С‚Рѕ СЃРѕР·РґР°РµРј
+  if(*index == 255)// Если символ еще не создан, то создаем
   {
     x = getCursorCol();
     y = getCursorRow();
-    createChar(symbol_index, array);// РЎРѕР·РґР°РµРј СЃРёРјРІРѕР» РЅР° С‚РµРєСѓС‰РµРј (РїРѕ РѕС‡РµСЂРµРґРё) РјРµСЃС‚Рµ РІ Р·РЅР°РєРѕРіРµРЅРµСЂР°С‚РѕСЂРµ (РѕС‚ 0 РґРѕ MAX_SYMBOL_COUNT)
+    createChar(symbol_index, array);// Создаем символ на текущем (по очереди) месте в знакогенераторе (от 0 до MAX_SYMBOL_COUNT)
     setCursor(x,y);
-    write(symbol_index);// Р’С‹РІРѕРґРёРј СЃРёРјРІРѕР» РЅР° СЌРєСЂР°РЅ
-    //Р—Р°РїРѕРјРёР°РЅРµРј, С‡С‚Рѕ Р±СѓРєРІРµ СЃРѕРѕС‚РІРµС‚СЃС‚РІСѓРµС‚ РѕРїСЂРµРґРµР»РµРЅРЅС‹Р№ РёРЅРґРµРєСЃ
+    write(symbol_index);// Выводим символ на экран
+    //Запомианем, что букве соответствует определенный индекс
     *index = symbol_index;
     symbol_index++;
     if(symbol_index >= MAX_SYMBOL_COUNT)
     	symbol_index = 0;
   }
-  else   //РРЅР°С‡Рµ РїРµС‡Р°С‚Р°РµРј СѓР¶Рµ СЃСѓС‰РµСЃС‚РІСѓСЋС‰РёР№
+  else   //Иначе печатаем уже существующий
     write(*index);
 }
 void LCD_1602_RUS::ResetAllIndex()
@@ -351,7 +351,7 @@ void LCD_1602_RUS::ResetAllIndex()
   index_rus_yu=255;
   index_rus_ya=255;
 }
-//Р‘
+//Б
 byte rus_B[8] = {
   0b11111,
   0b10000,
@@ -362,7 +362,7 @@ byte rus_B[8] = {
   0b11110,
   0b00000
 };
-//Р“
+//Г
 byte rus_G[8] = {
   0b11111,
   0b10000,
@@ -373,7 +373,7 @@ byte rus_G[8] = {
   0b10000,
   0b00000
 };
-//Р”
+//Д
 byte rus_D[8] = {
   0b00110,
   0b01010,
@@ -384,7 +384,7 @@ byte rus_D[8] = {
   0b11111,
   0b10001
 };
-//Р–
+//Ж
 byte rus_ZH[8] = {
   0b10101,
   0b10101,
@@ -395,7 +395,7 @@ byte rus_ZH[8] = {
   0b10101,
   0b00000
 };
-//Р—
+//З
 byte rus_Z[8] = {
   0b01110,
   0b10001,
@@ -406,7 +406,7 @@ byte rus_Z[8] = {
   0b01110,
   0b00000
 };
-//Р
+//И
 byte rus_I[8] = {
   0b10001,
   0b10001,
@@ -417,7 +417,7 @@ byte rus_I[8] = {
   0b10001,
   0b00000
 };
-//Р™
+//Й
 byte rus_II[8] = {
   0b10101,
   0b10001,
@@ -428,7 +428,7 @@ byte rus_II[8] = {
   0b10001,
   0b00000
 };
-//Р›
+//Л
 byte rus_L[8] = {
   0b00111,
   0b01001,
@@ -439,7 +439,7 @@ byte rus_L[8] = {
   0b10001,
   0b00000
 };
-//Рџ
+//П
 byte rus_P[8] = {
   0b11111,
   0b10001,
@@ -450,7 +450,7 @@ byte rus_P[8] = {
   0b10001,
   0b00000
 };
-//РЈ
+//У
 byte rus_U[8] = {
   0b10001,
   0b10001,
@@ -461,7 +461,7 @@ byte rus_U[8] = {
   0b01110,
   0b00000
 };
-//Р¤
+//Ф
 byte rus_F[8] = {
   0b00100,
   0b01110,
@@ -472,7 +472,7 @@ byte rus_F[8] = {
   0b00100,
   0b00000
 };
-//Р¦
+//Ц
 byte rus_TS[8] = {
   0b10010,
   0b10010,
@@ -483,7 +483,7 @@ byte rus_TS[8] = {
   0b11111,
   0b00001
 };
-//Р§
+//Ч
 byte rus_CH[8] = {
   0b10001,
   0b10001,
@@ -494,7 +494,7 @@ byte rus_CH[8] = {
   0b00001,
   0b00000
 };
-//РЁ
+//Ш
 byte rus_SH[8] = {
   0b10001,
   0b10001,
@@ -505,7 +505,7 @@ byte rus_SH[8] = {
   0b11111,
   0b00000
 };
-//Р©
+//Щ
 byte rus_SCH[8] = {
   0b10001,
   0b10001,
@@ -516,7 +516,7 @@ byte rus_SCH[8] = {
   0b11111,
   0b00001
 };
-//РЄ
+//Ъ
 byte rus_tverd[8] = {
   0b11000,
   0b01000,
@@ -527,7 +527,7 @@ byte rus_tverd[8] = {
   0b01110,
   0b00000
 };
-//Р«
+//Ы
 byte rus_Y[8] = {
   0b10001,
   0b10001,
@@ -538,7 +538,7 @@ byte rus_Y[8] = {
   0b11101,
   0b00000
 };
-//Р¬
+//Ь
 byte rus_myagk[8] = {
   0b10000,
   0b10000,
@@ -549,7 +549,7 @@ byte rus_myagk[8] = {
   0b11110,
   0b00000
 };
-//Р­
+//Э
 byte rus_EE[8] = {
   0b01110,
   0b10001,
@@ -560,7 +560,7 @@ byte rus_EE[8] = {
   0b01110,
   0b00000
 };
-//Р®
+//Ю
 byte rus_YU[8] = {
   0b10010,
   0b10101,
@@ -571,7 +571,7 @@ byte rus_YU[8] = {
   0b10010,
   0b00000
 };
-//РЇ
+//Я
 byte rus_YA[8] = {
   0b01111,
   0b10001,
@@ -591,7 +591,7 @@ byte rus_b[8] = {
   0b10001,
   0b01110,
   0b00000
-};//Р±
+};//б
 byte rus_v[8] = {
   0b00000,
   0b00000,
@@ -601,7 +601,7 @@ byte rus_v[8] = {
   0b10001,
   0b11110,
   0b00000
-};//РІ
+};//в
 byte rus_g[8] = {
   0b00000,
   0b00000,
@@ -611,7 +611,7 @@ byte rus_g[8] = {
   0b10000,
   0b10000,
   0b00000
-};//Рі
+};//г
 byte rus_d[8] = {
   0b00000,
   0b00000,
@@ -621,7 +621,7 @@ byte rus_d[8] = {
   0b01010,
   0b11111,
   0b10001
-};//Рґ
+};//д
 byte rus_yo[8] = {
   0b01010,
   0b00000,
@@ -631,7 +631,7 @@ byte rus_yo[8] = {
   0b10000,
   0b01111,
   0b00000
-};//С‘
+};//ё
 byte rus_zh[8] = {
   0b00000,
   0b00000,
@@ -641,7 +641,7 @@ byte rus_zh[8] = {
   0b10101,
   0b10101,
   0b00000
-};//Р¶
+};//ж
 byte rus_z[8] = {
   0b00000,
   0b00000,
@@ -651,7 +651,7 @@ byte rus_z[8] = {
   0b10001,
   0b01110,
   0b00000
-};//Р·
+};//з
 byte rus_i[8] = {
   0b00000,
   0b00000,
@@ -661,7 +661,7 @@ byte rus_i[8] = {
   0b11001,
   0b10001,
   0b00000
-};//Рё
+};//и
 byte rus_ii[8] = {
   0b01010,
   0b00100,
@@ -671,7 +671,7 @@ byte rus_ii[8] = {
   0b11001,
   0b10001,
   0b00000
-};//Р№
+};//й
 byte rus_k[8] = {
   0b00000,
   0b00000,
@@ -681,7 +681,7 @@ byte rus_k[8] = {
   0b10100,
   0b10010,
   0b00000
-};//Рє
+};//к
 byte rus_l[8] = {
   0b00000,
   0b00000,
@@ -691,7 +691,7 @@ byte rus_l[8] = {
   0b01001,
   0b10001,
   0b00000
-};//Р»
+};//л
 byte rus_m[8] = {
   0b00000,
   0b00000,
@@ -701,7 +701,7 @@ byte rus_m[8] = {
   0b10001,
   0b10001,
   0b00000
-};//Рј
+};//м
 byte rus_n[8] = {
   0b00000,
   0b00000,
@@ -711,7 +711,7 @@ byte rus_n[8] = {
   0b10001,
   0b10001,
   0b00000
-};//РЅ
+};//н
 byte rus_p[8] = {
   0b00000,
   0b00000,
@@ -721,7 +721,7 @@ byte rus_p[8] = {
   0b10001,
   0b10001,
   0b00000
-};//Рї
+};//п
 byte rus_t[8] = {
   0b00000,
   0b00000,
@@ -731,7 +731,7 @@ byte rus_t[8] = {
   0b00100,
   0b00100,
   0b00000
-};//С‚
+};//т
 byte rus_f[8] = {
   0b00000,
   0b00000,
@@ -741,7 +741,7 @@ byte rus_f[8] = {
   0b01110,
   0b00100,
   0b00000
-};//С„
+};//ф
 byte rus_ts[8] = {
   0b00000,
   0b00000,
@@ -751,7 +751,7 @@ byte rus_ts[8] = {
   0b10010,
   0b11111,
   0b00001
-};//С†
+};//ц
 byte rus_ch[8] = {
   0b00000,
   0b00000,
@@ -761,7 +761,7 @@ byte rus_ch[8] = {
   0b00001,
   0b00001,
   0b00000
-};//С‡
+};//ч
 byte rus_sh[8] = {
   0b00000,
   0b00000,
@@ -771,7 +771,7 @@ byte rus_sh[8] = {
   0b10101,
   0b11111,
   0b00000
-};//С€
+};//ш
 byte rus_sch[8] = {
   0b00000,
   0b00000,
@@ -781,7 +781,7 @@ byte rus_sch[8] = {
   0b10101,
   0b11111,
   0b00001
-};//С‰
+};//щ
 byte rus_tverd_mal[8] = {
   0b00000,
   0b00000,
@@ -791,7 +791,7 @@ byte rus_tverd_mal[8] = {
   0b01001,
   0b01110,
   0b00000
-};//СЉ
+};//ъ
 byte rus_y[8] = {
   0b00000,
   0b00000,
@@ -801,7 +801,7 @@ byte rus_y[8] = {
   0b10011,
   0b11101,
   0b00000
-};//С‹
+};//ы
 byte rus_myagk_mal[8] = {
   0b00000,
   0b00000,
@@ -811,7 +811,7 @@ byte rus_myagk_mal[8] = {
   0b10001,
   0b11110,
   0b00000
-};//СЊ
+};//ь
 byte rus_ee[8] = {
   0b00000,
   0b00000,
@@ -821,7 +821,7 @@ byte rus_ee[8] = {
   0b10001,
   0b01110,
   0b00000
-};//СЌ
+};//э
 byte rus_yu[8] = {
   0b00000,
   0b00000,
@@ -831,7 +831,7 @@ byte rus_yu[8] = {
   0b10101,
   0b10010,
   0b00000
-};//СЋ
+};//ю
 byte rus_ya[8] = {
   0b00000,
   0b00000,
@@ -841,4 +841,4 @@ byte rus_ya[8] = {
   0b00101,
   0b01001,
   0b00000
-};//СЏ
+};//я
