@@ -1,4 +1,5 @@
 #include <arduino.h>
+#include <avr/pgmspace.h>
 #include "LCD_1602_RUS.h"
 
 LCD_1602_RUS :: LCD_1602_RUS(uint8_t lcd_Addr,uint8_t lcd_cols,uint8_t lcd_rows) : LiquidCrystal_I2C (lcd_Addr, lcd_cols, lcd_rows)
@@ -53,6 +54,7 @@ void LCD_1602_RUS::print(double val, int base){
   LiquidCrystal_I2C::print(val, base);
 }
 void LCD_1602_RUS::print(const wchar_t *_str){
+  uint8_t rus_[8];
   int current_char  = 0;
   int size = 0;
  
@@ -69,145 +71,192 @@ void LCD_1602_RUS::print(const wchar_t *_str){
       //Русский алфавит, требующий новых символов
       //Единовременно может быть заменено только 8 символов
       case 1041: //Б
-        CharSetToLCD(rus_B, &index_rus_B);
+        memcpy_PF(rus_, (uint32_t)rus_B, 8);
+        CharSetToLCD((uint8_t *)rus_, &index_rus_B);
       break;
       case 1043: //Г
-        CharSetToLCD(rus_G, &index_rus_G);
+        memcpy_PF(rus_, (uint32_t)rus_G, 8);
+        CharSetToLCD((uint8_t *)rus_, &index_rus_G);
       break;
       case 1044: //Д
-        CharSetToLCD(rus_D, &index_rus_D);
+        memcpy_PF(rus_, (uint32_t)rus_D, 8);
+        CharSetToLCD((uint8_t *)rus_, &index_rus_D);
       break;
       case 1046: //Ж
-        CharSetToLCD(rus_ZH, &index_rus_ZH);
+        memcpy_PF(rus_, (uint32_t)rus_ZH, 8);
+        CharSetToLCD((uint8_t *)rus_, &index_rus_ZH);
       break;
       case 1047: //З
-        CharSetToLCD(rus_Z, &index_rus_Z);
+        memcpy_PF(rus_, (uint32_t)rus_Z, 8);
+        CharSetToLCD((uint8_t *)rus_, &index_rus_Z);
       break;
       case 1048: //И
-        CharSetToLCD(rus_I, &index_rus_I);
+        memcpy_PF(rus_, (uint32_t)rus_I, 8);
+        CharSetToLCD((uint8_t *)rus_, &index_rus_I);
       break;
       case 1049: //Й
-        CharSetToLCD(rus_II, &index_rus_II);
+        memcpy_PF(rus_, (uint32_t)rus_II, 8);
+        CharSetToLCD((uint8_t *)rus_, &index_rus_II);
       break;
       case 1051: //Л
-        CharSetToLCD(rus_L, &index_rus_L);
+        memcpy_PF(rus_, (uint32_t)rus_L, 8);
+        CharSetToLCD((uint8_t *)rus_, &index_rus_L);
       break;
       case 1055: //П
-        CharSetToLCD(rus_P, &index_rus_P);
+        memcpy_PF(rus_, (uint32_t)rus_P, 8);
+        CharSetToLCD((uint8_t *)rus_, &index_rus_P);
       break;
       case 1059: //У
-        CharSetToLCD(rus_U, &index_rus_U);
+        memcpy_PF(rus_, (uint32_t)rus_U, 8);
+        CharSetToLCD((uint8_t *)rus_, &index_rus_U);
       break;
       case 1060: //Ф
-        CharSetToLCD(rus_F, &index_rus_F);
+        memcpy_PF(rus_, (uint32_t)rus_F, 8);
+        CharSetToLCD((uint8_t *)rus_, &index_rus_F);
       break;
       case 1062: //Ц
-        CharSetToLCD(rus_TS, &index_rus_TS);
+        memcpy_PF(rus_, (uint32_t)rus_TS, 8);
+        CharSetToLCD((uint8_t *)rus_, &index_rus_TS);
       break;
       case 1063: //Ч
-        CharSetToLCD(rus_CH, &index_rus_CH);
+        memcpy_PF(rus_, (uint32_t)rus_CH, 8);
+        CharSetToLCD((uint8_t *)rus_, &index_rus_CH);
       break;
       case 1064: //Ш
-        CharSetToLCD(rus_SH, &index_rus_SH);
+        memcpy_PF(rus_, (uint32_t)rus_SH, 8);
+        CharSetToLCD((uint8_t *)rus_, &index_rus_SH);
       break;
       case 1065: //Щ
-        CharSetToLCD(rus_SCH, &index_rus_SCH);
+        memcpy_PF(rus_, (uint32_t)rus_SCH, 8);
+        CharSetToLCD((uint8_t *)rus_, &index_rus_SCH);
       break;
       case 1066: //Ъ
-        CharSetToLCD(rus_tverd, &index_rus_tverd);
+        memcpy_PF(rus_, (uint32_t)rus_tverd, 8);
+        CharSetToLCD((uint8_t *)rus_, &index_rus_tverd);
       break;
       case 1067: //Ы
-        CharSetToLCD(rus_Y, &index_rus_Y);
+        memcpy_PF(rus_, (uint32_t)rus_Y, 8);
+        CharSetToLCD((uint8_t *)rus_, &index_rus_Y);
       break;
       case 1068: //Ь
-        CharSetToLCD(rus_myagk, &index_rus_myagk);
+        memcpy_PF(rus_, (uint32_t)rus_myagk, 8);
+        CharSetToLCD((uint8_t *)rus_, &index_rus_myagk);
       break;
       case 1069: //Э
-        CharSetToLCD(rus_EE, &index_rus_EE);
+        memcpy_PF(rus_, (uint32_t)rus_EE, 8);
+        CharSetToLCD((uint8_t *)rus_, &index_rus_EE);
       break;
       case 1070: //Ю
-        CharSetToLCD(rus_YU, &index_rus_YU);
+        memcpy_PF(rus_, (uint32_t)rus_YU, 8);
+        CharSetToLCD((uint8_t *)rus_, &index_rus_YU);
       break;
       case 1071: //Я
-        CharSetToLCD(rus_YA, &index_rus_YA);
+        memcpy_PF(rus_, (uint32_t)rus_YA, 8);
+        CharSetToLCD((uint8_t *)rus_, &index_rus_YA);
       break;
       case 1073: //б
-        CharSetToLCD(rus_b, &index_rus_b);
+        memcpy_PF(rus_, (uint32_t)rus_b, 8);
+        CharSetToLCD((uint8_t *)rus_, &index_rus_b);
       break;
       case 1074: //в
-        CharSetToLCD(rus_v, &index_rus_v);
+        memcpy_PF(rus_, (uint32_t)rus_v, 8);
+        CharSetToLCD((uint8_t *)rus_, &index_rus_v);
       break;
       case 1075: //г
-        CharSetToLCD(rus_g, &index_rus_g);
+        memcpy_PF(rus_, (uint32_t)rus_g, 8);
+        CharSetToLCD((uint8_t *)rus_, &index_rus_g);
       break;
       case 1076: //д
-        CharSetToLCD(rus_d, &index_rus_d);
+        memcpy_PF(rus_, (uint32_t)rus_d, 8);
+        CharSetToLCD((uint8_t *)rus_, &index_rus_d);
       break;
       case 1105: //ё
-        CharSetToLCD(rus_yo, &index_rus_yo);
+        memcpy_PF(rus_, (uint32_t)rus_yo, 8);
+        CharSetToLCD((uint8_t *)rus_, &index_rus_yo);
       break;
       case 1078: //ж
-        CharSetToLCD(rus_zh, &index_rus_zh);
+        memcpy_PF(rus_, (uint32_t)rus_zh, 8);
+        CharSetToLCD((uint8_t *)rus_, &index_rus_zh);
       break;
       case 1079: //з
-        CharSetToLCD(rus_z, &index_rus_z);
+        memcpy_PF(rus_, (uint32_t)rus_z, 8);
+        CharSetToLCD((uint8_t *)rus_, &index_rus_z);
       break;
       case 1080: //и
-        CharSetToLCD(rus_i, &index_rus_i);
+        memcpy_PF(rus_, (uint32_t)rus_i, 8);
+        CharSetToLCD((uint8_t *)rus_, &index_rus_i);
       break;
       case 1081: //й
-        CharSetToLCD(rus_ii, &index_rus_ii);
+        memcpy_PF(rus_, (uint32_t)rus_ii, 8);
+        CharSetToLCD((uint8_t *)rus_, &index_rus_ii);
       break;
       case 1082: //к
-        CharSetToLCD(rus_k, &index_rus_k);
+        memcpy_PF(rus_, (uint32_t)rus_k, 8);
+        CharSetToLCD((uint8_t *)rus_, &index_rus_k);
       break;
       case 1083: //л
-        CharSetToLCD(rus_l, &index_rus_l);
+        memcpy_PF(rus_, (uint32_t)rus_l, 8);
+        CharSetToLCD((uint8_t *)rus_, &index_rus_l);
       break;
       case 1084: //м
-        CharSetToLCD(rus_m, &index_rus_m);
+        memcpy_PF(rus_, (uint32_t)rus_m, 8);
+        CharSetToLCD((uint8_t *)rus_, &index_rus_m);
       break;
       case 1085: //н
-        CharSetToLCD(rus_n, &index_rus_n);
+        memcpy_PF(rus_, (uint32_t)rus_n, 8);
+        CharSetToLCD((uint8_t *)rus_, &index_rus_n);
       break;
       case 1087: //п
-        CharSetToLCD(rus_p, &index_rus_p);
+        memcpy_PF(rus_, (uint32_t)rus_p, 8);
+        CharSetToLCD((uint8_t *)rus_, &index_rus_p);
       break;
       case 1090: //т
-        CharSetToLCD(rus_t, &index_rus_t);
+        memcpy_PF(rus_, (uint32_t)rus_t, 8);
+        CharSetToLCD((uint8_t *)rus_, &index_rus_t);
       break;
       case 1092: //ф
-        CharSetToLCD(rus_f, &index_rus_f);
+        memcpy_PF(rus_, (uint32_t)rus_f, 8);
+        CharSetToLCD((uint8_t *)rus_, &index_rus_f);
       break;
       case 1094: //ц
-        CharSetToLCD(rus_ts, &index_rus_ts);
+        memcpy_PF(rus_, (uint32_t)rus_ts, 8);
+        CharSetToLCD((uint8_t *)rus_, &index_rus_ts);
       break;
       case 1095: //ч
-        CharSetToLCD(rus_ch, &index_rus_ch);
+        memcpy_PF(rus_, (uint32_t)rus_ch, 8);
+        CharSetToLCD((uint8_t *)rus_, &index_rus_ch);
       break;
       case 1096: //ш
-        CharSetToLCD(rus_sh, &index_rus_sh);
+        memcpy_PF(rus_, (uint32_t)rus_sh, 8);
+        CharSetToLCD((uint8_t *)rus_, &index_rus_sh);
       break;
       case 1097: //щ
-        CharSetToLCD(rus_sch, &index_rus_sch);
+        memcpy_PF(rus_, (uint32_t)rus_sch, 8);
+        CharSetToLCD((uint8_t *)rus_, &index_rus_sch);
       break;
       case 1098: //ъ
-        CharSetToLCD(rus_tverd_mal, &index_rus_tverd_mal);
+        memcpy_PF(rus_, (uint32_t)rus_tverd_mal, 8);
+        CharSetToLCD((uint8_t *)rus_, &index_rus_tverd_mal);
       break;
       case 1099: //ы
-        CharSetToLCD(rus_y, &index_rus_y);
+        memcpy_PF(rus_, (uint32_t)rus_y, 8);
+        CharSetToLCD((uint8_t *)rus_, &index_rus_y);
       break;
       case 1100: //ь
-        CharSetToLCD(rus_myagk_mal, &index_rus_myagk_mal);
+        memcpy_PF(rus_, (uint32_t)rus_myagk_mal, 8);
+        CharSetToLCD((uint8_t *)rus_, &index_rus_myagk_mal);
       break;
       case 1101: //э
-        CharSetToLCD(rus_ee, &index_rus_ee);
+        memcpy_PF(rus_, (uint32_t)rus_ee, 8);
+        CharSetToLCD((uint8_t *)rus_, &index_rus_ee);
       break;
       case 1102: //ю
-        CharSetToLCD(rus_yu, &index_rus_yu);
+        memcpy_PF(rus_, (uint32_t)rus_yu, 8);
+        CharSetToLCD((uint8_t *)rus_, &index_rus_yu);
       break;
       case 1103: //я
-        CharSetToLCD(rus_ya, &index_rus_ya);
+        memcpy_PF(rus_, (uint32_t)rus_ya, 8);
+        CharSetToLCD((uint8_t *)rus_, &index_rus_ya);
       break;
       //Русский алфавит, использующий одинаковые с английским алфавитом символы
       case 1040: //А
@@ -280,7 +329,7 @@ void LCD_1602_RUS::print(const wchar_t *_str){
   }
  
 }
-void LCD_1602_RUS::CharSetToLCD(const uint8_t *array, uint8_t *index)
+void LCD_1602_RUS::CharSetToLCD(uint8_t *array, uint8_t *index)
 {
   uint8_t x,y;
 
