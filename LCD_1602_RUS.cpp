@@ -280,7 +280,7 @@ void LCD_1602_RUS::print(const wchar_t *_str){
   }
  
 }
-void LCD_1602_RUS::CharSetToLCD(uint8_t *array, uint8_t *index)
+void LCD_1602_RUS::CharSetToLCD(const uint8_t *array, uint8_t *index)
 {
   uint8_t x,y;
 
@@ -288,7 +288,7 @@ void LCD_1602_RUS::CharSetToLCD(uint8_t *array, uint8_t *index)
   {
     x = getCursorCol();
     y = getCursorRow();
-    createChar(symbol_index, array);// Создаем символ на текущем (по очереди) месте в знакогенераторе (от 0 до MAX_SYMBOL_COUNT)
+    createChar(symbol_index, (uint8_t *)array);// Создаем символ на текущем (по очереди) месте в знакогенераторе (от 0 до MAX_SYMBOL_COUNT)
     setCursor(x,y);
     write(symbol_index);// Выводим символ на экран
     //Запомианем, что букве соответствует определенный индекс
@@ -352,7 +352,7 @@ void LCD_1602_RUS::ResetAllIndex()
   index_rus_ya=255;
 }
 //Б
-byte rus_B[8] = {
+const byte rus_B[8] PROGMEM = {
   0b11111,
   0b10000,
   0b10000,
@@ -363,7 +363,7 @@ byte rus_B[8] = {
   0b00000
 };
 //Г
-byte rus_G[8] = {
+const byte rus_G[8] PROGMEM = {
   0b11111,
   0b10000,
   0b10000,
@@ -374,7 +374,7 @@ byte rus_G[8] = {
   0b00000
 };
 //Д
-byte rus_D[8] = {
+const byte rus_D[8] PROGMEM = {
   0b00110,
   0b01010,
   0b01010,
@@ -385,7 +385,7 @@ byte rus_D[8] = {
   0b10001
 };
 //Ж
-byte rus_ZH[8] = {
+const byte rus_ZH[8] PROGMEM = {
   0b10101,
   0b10101,
   0b10101,
@@ -396,7 +396,7 @@ byte rus_ZH[8] = {
   0b00000
 };
 //З
-byte rus_Z[8] = {
+const byte rus_Z[8] PROGMEM = {
   0b01110,
   0b10001,
   0b00001,
@@ -407,7 +407,7 @@ byte rus_Z[8] = {
   0b00000
 };
 //И
-byte rus_I[8] = {
+const byte rus_I[8] PROGMEM = {
   0b10001,
   0b10001,
   0b10001,
@@ -418,7 +418,7 @@ byte rus_I[8] = {
   0b00000
 };
 //Й
-byte rus_II[8] = {
+const byte rus_II[8] PROGMEM = {
   0b10101,
   0b10001,
   0b10001,
@@ -429,7 +429,7 @@ byte rus_II[8] = {
   0b00000
 };
 //Л
-byte rus_L[8] = {
+const byte rus_L[8] PROGMEM = {
   0b00111,
   0b01001,
   0b01001,
@@ -440,7 +440,7 @@ byte rus_L[8] = {
   0b00000
 };
 //П
-byte rus_P[8] = {
+const byte rus_P[8] PROGMEM = {
   0b11111,
   0b10001,
   0b10001,
@@ -451,7 +451,7 @@ byte rus_P[8] = {
   0b00000
 };
 //У
-byte rus_U[8] = {
+const byte rus_U[8] PROGMEM = {
   0b10001,
   0b10001,
   0b10001,
@@ -462,7 +462,7 @@ byte rus_U[8] = {
   0b00000
 };
 //Ф
-byte rus_F[8] = {
+const byte rus_F[8] PROGMEM = {
   0b00100,
   0b01110,
   0b10101,
@@ -473,7 +473,7 @@ byte rus_F[8] = {
   0b00000
 };
 //Ц
-byte rus_TS[8] = {
+const byte rus_TS[8] PROGMEM = {
   0b10010,
   0b10010,
   0b10010,
@@ -484,7 +484,7 @@ byte rus_TS[8] = {
   0b00001
 };
 //Ч
-byte rus_CH[8] = {
+const byte rus_CH[8] PROGMEM = {
   0b10001,
   0b10001,
   0b10001,
@@ -495,7 +495,7 @@ byte rus_CH[8] = {
   0b00000
 };
 //Ш
-byte rus_SH[8] = {
+const byte rus_SH[8] PROGMEM = {
   0b10001,
   0b10001,
   0b10001,
@@ -506,7 +506,7 @@ byte rus_SH[8] = {
   0b00000
 };
 //Щ
-byte rus_SCH[8] = {
+const byte rus_SCH[8] PROGMEM = {
   0b10001,
   0b10001,
   0b10001,
@@ -517,7 +517,7 @@ byte rus_SCH[8] = {
   0b00001
 };
 //Ъ
-byte rus_tverd[8] = {
+const byte rus_tverd[8] PROGMEM = {
   0b11000,
   0b01000,
   0b01000,
@@ -528,7 +528,7 @@ byte rus_tverd[8] = {
   0b00000
 };
 //Ы
-byte rus_Y[8] = {
+const byte rus_Y[8] PROGMEM = {
   0b10001,
   0b10001,
   0b10001,
@@ -539,7 +539,7 @@ byte rus_Y[8] = {
   0b00000
 };
 //Ь
-byte rus_myagk[8] = {
+const byte rus_myagk[8] PROGMEM = {
   0b10000,
   0b10000,
   0b10000,
@@ -550,7 +550,7 @@ byte rus_myagk[8] = {
   0b00000
 };
 //Э
-byte rus_EE[8] = {
+const byte rus_EE[8] PROGMEM = {
   0b01110,
   0b10001,
   0b00001,
@@ -561,7 +561,7 @@ byte rus_EE[8] = {
   0b00000
 };
 //Ю
-byte rus_YU[8] = {
+const byte rus_YU[8] PROGMEM = {
   0b10010,
   0b10101,
   0b10101,
@@ -572,7 +572,7 @@ byte rus_YU[8] = {
   0b00000
 };
 //Я
-byte rus_YA[8] = {
+const byte rus_YA[8] PROGMEM = {
   0b01111,
   0b10001,
   0b10001,
@@ -582,7 +582,7 @@ byte rus_YA[8] = {
   0b10001,
   0b00000
 };
-byte rus_b[8] = {
+const byte rus_b[8] PROGMEM = {
   0b00011,
   0b01100,
   0b10000,
@@ -592,7 +592,7 @@ byte rus_b[8] = {
   0b01110,
   0b00000
 };//б
-byte rus_v[8] = {
+const byte rus_v[8] PROGMEM = {
   0b00000,
   0b00000,
   0b11110,
@@ -602,7 +602,7 @@ byte rus_v[8] = {
   0b11110,
   0b00000
 };//в
-byte rus_g[8] = {
+const byte rus_g[8] PROGMEM = {
   0b00000,
   0b00000,
   0b11110,
@@ -612,7 +612,7 @@ byte rus_g[8] = {
   0b10000,
   0b00000
 };//г
-byte rus_d[8] = {
+const byte rus_d[8] PROGMEM = {
   0b00000,
   0b00000,
   0b00110,
@@ -622,7 +622,7 @@ byte rus_d[8] = {
   0b11111,
   0b10001
 };//д
-byte rus_yo[8] = {
+const byte rus_yo[8] PROGMEM = {
   0b01010,
   0b00000,
   0b01110,
@@ -632,7 +632,7 @@ byte rus_yo[8] = {
   0b01111,
   0b00000
 };//ё
-byte rus_zh[8] = {
+const byte rus_zh[8] PROGMEM = {
   0b00000,
   0b00000,
   0b10101,
@@ -642,7 +642,7 @@ byte rus_zh[8] = {
   0b10101,
   0b00000
 };//ж
-byte rus_z[8] = {
+const byte rus_z[8] PROGMEM = {
   0b00000,
   0b00000,
   0b01110,
@@ -652,7 +652,7 @@ byte rus_z[8] = {
   0b01110,
   0b00000
 };//з
-byte rus_i[8] = {
+const byte rus_i[8] PROGMEM = {
   0b00000,
   0b00000,
   0b10001,
@@ -662,7 +662,7 @@ byte rus_i[8] = {
   0b10001,
   0b00000
 };//и
-byte rus_ii[8] = {
+const byte rus_ii[8] PROGMEM = {
   0b01010,
   0b00100,
   0b10001,
@@ -672,7 +672,7 @@ byte rus_ii[8] = {
   0b10001,
   0b00000
 };//й
-byte rus_k[8] = {
+const byte rus_k[8] PROGMEM = {
   0b00000,
   0b00000,
   0b10010,
@@ -682,7 +682,7 @@ byte rus_k[8] = {
   0b10010,
   0b00000
 };//к
-byte rus_l[8] = {
+const byte rus_l[8] PROGMEM = {
   0b00000,
   0b00000,
   0b00111,
@@ -692,7 +692,7 @@ byte rus_l[8] = {
   0b10001,
   0b00000
 };//л
-byte rus_m[8] = {
+const byte rus_m[8] PROGMEM = {
   0b00000,
   0b00000,
   0b10001,
@@ -702,7 +702,7 @@ byte rus_m[8] = {
   0b10001,
   0b00000
 };//м
-byte rus_n[8] = {
+const byte rus_n[8] PROGMEM = {
   0b00000,
   0b00000,
   0b10001,
@@ -712,7 +712,7 @@ byte rus_n[8] = {
   0b10001,
   0b00000
 };//н
-byte rus_p[8] = {
+const byte rus_p[8] PROGMEM = {
   0b00000,
   0b00000,
   0b11111,
@@ -722,7 +722,7 @@ byte rus_p[8] = {
   0b10001,
   0b00000
 };//п
-byte rus_t[8] = {
+const byte rus_t[8] PROGMEM = {
   0b00000,
   0b00000,
   0b11111,
@@ -732,7 +732,7 @@ byte rus_t[8] = {
   0b00100,
   0b00000
 };//т
-byte rus_f[8] = {
+const byte rus_f[8] PROGMEM = {
   0b00000,
   0b00000,
   0b00100,
@@ -742,7 +742,7 @@ byte rus_f[8] = {
   0b00100,
   0b00000
 };//ф
-byte rus_ts[8] = {
+const byte rus_ts[8] PROGMEM = {
   0b00000,
   0b00000,
   0b10010,
@@ -752,7 +752,7 @@ byte rus_ts[8] = {
   0b11111,
   0b00001
 };//ц
-byte rus_ch[8] = {
+const byte rus_ch[8] PROGMEM = {
   0b00000,
   0b00000,
   0b10001,
@@ -762,7 +762,7 @@ byte rus_ch[8] = {
   0b00001,
   0b00000
 };//ч
-byte rus_sh[8] = {
+const byte rus_sh[8] PROGMEM = {
   0b00000,
   0b00000,
   0b10101,
@@ -772,7 +772,7 @@ byte rus_sh[8] = {
   0b11111,
   0b00000
 };//ш
-byte rus_sch[8] = {
+const byte rus_sch[8] PROGMEM = {
   0b00000,
   0b00000,
   0b10101,
@@ -782,7 +782,7 @@ byte rus_sch[8] = {
   0b11111,
   0b00001
 };//щ
-byte rus_tverd_mal[8] = {
+const byte rus_tverd_mal[8] PROGMEM = {
   0b00000,
   0b00000,
   0b11000,
@@ -792,7 +792,7 @@ byte rus_tverd_mal[8] = {
   0b01110,
   0b00000
 };//ъ
-byte rus_y[8] = {
+const byte rus_y[8] PROGMEM = {
   0b00000,
   0b00000,
   0b10001,
@@ -802,7 +802,7 @@ byte rus_y[8] = {
   0b11101,
   0b00000
 };//ы
-byte rus_myagk_mal[8] = {
+const byte rus_myagk_mal[8] PROGMEM = {
   0b00000,
   0b00000,
   0b10000,
@@ -812,7 +812,7 @@ byte rus_myagk_mal[8] = {
   0b11110,
   0b00000
 };//ь
-byte rus_ee[8] = {
+const byte rus_ee[8] PROGMEM = {
   0b00000,
   0b00000,
   0b01110,
@@ -822,7 +822,7 @@ byte rus_ee[8] = {
   0b01110,
   0b00000
 };//э
-byte rus_yu[8] = {
+const byte rus_yu[8] PROGMEM = {
   0b00000,
   0b00000,
   0b10010,
@@ -832,7 +832,7 @@ byte rus_yu[8] = {
   0b10010,
   0b00000
 };//ю
-byte rus_ya[8] = {
+const byte rus_ya[8] PROGMEM = {
   0b00000,
   0b00000,
   0b01111,
