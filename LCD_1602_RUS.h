@@ -23,7 +23,7 @@ public:
 	uint8_t getCursorRow(); 
 
 private:
-  void CharSetToLCD(const uint8_t *, uint8_t *);
+  void CharSetToLCD(uint8_t *, uint8_t *);
   void ResetAllIndex();
 
   int symbol_index;//Индекс символа (от 0 до 7)
