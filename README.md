@@ -7,4 +7,4 @@ Arduino LCD 16x02 display RUSSIAN with NO CYRILLIC symbols set
 Дополнительно встроена возможность печати знака градуса Цельсия. Для этого в тексте программы необходимо набрать
 код UTF-8 (Alt+0176)
 
-Должна быть установелна базовая библиотека LiauidCrystal_I2C: https://github.com/marcoschwartz/LiquidCrystal_I2C
+Должна быть установелна базовая библиотека LiquidCrystal_I2C: https://github.com/marcoschwartz/LiquidCrystal_I2C
