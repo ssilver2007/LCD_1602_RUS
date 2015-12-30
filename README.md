@@ -6,3 +6,5 @@ Arduino LCD 16x02 display RUSSIAN with NO CYRILLIC symbols set
 Символы, одинаковые по начертанию с английскими (A, B, C, O, P и т.п.) используются из английского набора символов.
 Дополнительно встроена возможность печати знака градуса Цельсия. Для этого в тексте программы необходимо набрать
 код UTF-8 (Alt+0176)
+
+Должна быть установелна базовая библиотека LiauidCrystal_I2C: https://github.com/marcoschwartz/LiquidCrystal_I2C
