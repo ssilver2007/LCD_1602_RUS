@@ -8,3 +8,7 @@ Arduino LCD 16x02 display with I2C interface RUSSIAN with NO CYRILLIC symbols se
 код UTF-8 (Alt+0176)
 
 Должна быть установелна базовая библиотека LiquidCrystal_I2C: https://github.com/marcoschwartz/LiquidCrystal_I2C
+
+(c) Сергей Сироткин
+По вопросам обращаться:
+ssilver2007@rambler.ru
