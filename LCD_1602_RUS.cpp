@@ -27,31 +27,31 @@ uint8_t LCD_1602_RUS::getCursorRow()
   return cursor_row;
 }
 void LCD_1602_RUS::print(const char *str){
-	LiquidCrystal_I2C::print(str);
+	cursor_col += LiquidCrystal_I2C::print(str);
 }
 void LCD_1602_RUS::print(int val, int base){
-  LiquidCrystal_I2C::print(val, base);
+  cursor_col += LiquidCrystal_I2C::print(val, base);
 }
 void LCD_1602_RUS::print(unsigned int val, int base){
-  LiquidCrystal_I2C::print(val, base);
+  cursor_col += LiquidCrystal_I2C::print(val, base);
 }
 void LCD_1602_RUS::print(long val, int base){
-  LiquidCrystal_I2C::print(val, base);
+  cursor_col += LiquidCrystal_I2C::print(val, base);
 }
 void LCD_1602_RUS::print(unsigned long val, int base){
-  LiquidCrystal_I2C::print(val, base);
+  cursor_col += LiquidCrystal_I2C::print(val, base);
 }
 void LCD_1602_RUS::print(char val, int base){
-  LiquidCrystal_I2C::print(val, base);
+  cursor_col += LiquidCrystal_I2C::print(val, base);
 }
 void LCD_1602_RUS::print(unsigned char val, int base){
-  LiquidCrystal_I2C::print(val, base);
+  cursor_col += LiquidCrystal_I2C::print(val, base);
 }
 void LCD_1602_RUS::print(const String &str){
-  LiquidCrystal_I2C::print(str);
+  cursor_col += LiquidCrystal_I2C::print(str);
 }
 void LCD_1602_RUS::print(double val, int base){
-  LiquidCrystal_I2C::print(val, base);
+  cursor_col += LiquidCrystal_I2C::print(val, base);
 }
 void LCD_1602_RUS::print(const wchar_t *_str){
   uint8_t rus_[8];
