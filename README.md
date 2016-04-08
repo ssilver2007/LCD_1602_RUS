@@ -9,6 +9,11 @@ Arduino LCD 16x02 display with I2C interface RUSSIAN with NO CYRILLIC symbols se
 
 Должна быть установелна базовая библиотека LiquidCrystal_I2C: https://github.com/marcoschwartz/LiquidCrystal_I2C
 
+Возможные ошибки при компиляции примеров:
+1) Ошибка "exit status 1
+converting to execution character set: Illegal byte sequence"
+Решение: сохранить измененный скетч в новое место на диске с другим именем.
+
+
 (c) Сергей Сироткин
-По вопросам обращаться:
-ssilver2007@rambler.ru
+По вопросам обращаться: ssilver2007@rambler.ru
