@@ -1,4 +1,4 @@
-#include <arduino.h>
+#include <Arduino.h>
 #include <avr/pgmspace.h>
 #include "LCD_1602_RUS.h"
 
