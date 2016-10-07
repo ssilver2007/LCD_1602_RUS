@@ -1,4 +1,4 @@
-#include <Arduino.h>
+#include <arduino.h>
 #include <avr/pgmspace.h>
 #include "LCD_1602_RUS.h"
 
@@ -400,6 +400,21 @@ void LCD_1602_RUS::ResetAllIndex()
   index_rus_yu=255;
   index_rus_ya=255;
 }
+
+//Перевод символа из кодировки ASCII в UTF-8 (для печати расширенных русских символов на LCD)
+wchar_t *LCD_1602_RUS::asciiutf8(unsigned char ascii)
+{
+  if (ascii==168) char_utf8 = 0x401;//код ASCII буквы Ё
+  else if (ascii==184) char_utf8 = 0x451;//код ASCII буквы ё
+  else if ((ascii>=192)&&(ascii<=255))//остальные буквы русского алфавита
+  {
+    char_utf8 = ascii+848;
+  }
+  else char_utf8 = ascii;
+
+  return &char_utf8;
+}
+
 //Б
 const byte rus_B[8] PROGMEM = {
   0b11111,
@@ -891,3 +906,5 @@ const byte rus_ya[8] PROGMEM = {
   0b01001,
   0b00000
 };//я
+
+wchar_t char_utf8 = L" ";

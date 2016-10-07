@@ -21,6 +21,7 @@ public:
 	void setCursor(uint8_t, uint8_t); 
 	uint8_t getCursorCol(); 
 	uint8_t getCursorRow(); 
+  wchar_t *asciiutf8(unsigned char);
 
 private:
   void CharSetToLCD(uint8_t *, uint8_t *);
@@ -128,3 +129,5 @@ extern const byte rus_myagk_mal[];
 extern const byte rus_ee[];
 extern const byte rus_yu[];
 extern const byte rus_ya[];
+
+extern wchar_t char_utf8;
