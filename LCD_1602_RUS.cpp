@@ -907,4 +907,4 @@ const byte rus_ya[8] PROGMEM = {
   0b00000
 };//я
 
-wchar_t char_utf8 = L" ";
+//wchar_t char_utf8 = L" ";
