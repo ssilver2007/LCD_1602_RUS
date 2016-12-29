@@ -1,4 +1,4 @@
-#include "LCD_1602_RUS.h"
+#include <LCD_1602_RUS.h>
 
 LCD_1602_RUS lcd(0x27, 16, 2);
 
