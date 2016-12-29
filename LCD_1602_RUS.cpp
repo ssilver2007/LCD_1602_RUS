@@ -1,8 +1,8 @@
-#include <arduino.h>
+#include <Arduino.h>
 #include <avr/pgmspace.h>
 #include <LCD_1602_RUS.h>
 
-wchar_t *char_utf8 = L" ";
+wchar_t *char_utf8 = L' ';
 
 LCD_1602_RUS :: LCD_1602_RUS(uint8_t lcd_Addr,uint8_t lcd_cols,uint8_t lcd_rows) : LiquidCrystal_I2C (lcd_Addr, lcd_cols, lcd_rows)
 {
@@ -346,7 +346,10 @@ void LCD_1602_RUS::CharSetToLCD(uint8_t *array, uint8_t *index)
     *index = symbol_index;
     symbol_index++;
     if(symbol_index >= MAX_SYMBOL_COUNT)
+    {
     	symbol_index = 0;
+	ResetAllIndex();
+    }
   }
   else   //Иначе печатаем уже существующий
     write(*index);
