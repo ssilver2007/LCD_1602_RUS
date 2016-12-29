@@ -130,4 +130,4 @@ extern const byte rus_ee[];
 extern const byte rus_yu[];
 extern const byte rus_ya[];
 
-extern wchar_t char_utf8;
+extern wchar_t *char_utf8;
