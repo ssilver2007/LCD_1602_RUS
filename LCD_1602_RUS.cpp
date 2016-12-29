@@ -61,7 +61,7 @@ void LCD_1602_RUS::print(const wchar_t *_str){
   int size = 0;
  
   //Определяем длину строки (количество символов)
-  while(_str[size] != NULL)
+  while(_str[size] != 0)
   {
     size++;
   }
