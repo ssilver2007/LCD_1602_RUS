@@ -1,5 +1,5 @@
 #include <LiquidCrystal_I2C.h>
-#include "Print.h"
+#include <Print.h>
 
 #define MAX_SYMBOL_COUNT 8  //Максимальное количество переназначаемых символов от 0 до 7
 #define BYTE 0
