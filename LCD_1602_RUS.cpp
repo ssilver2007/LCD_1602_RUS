@@ -2,7 +2,7 @@
 #include <avr/pgmspace.h>
 #include <LCD_1602_RUS.h>
 
-wchar_t *char_utf8 = L' ';
+wchar_t *char_utf8 = L" ";
 
 LCD_1602_RUS :: LCD_1602_RUS(uint8_t lcd_Addr,uint8_t lcd_cols,uint8_t lcd_rows) : LiquidCrystal_I2C (lcd_Addr, lcd_cols, lcd_rows)
 {
