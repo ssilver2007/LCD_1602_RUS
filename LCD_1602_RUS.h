@@ -26,10 +26,12 @@ public:
 private:
   void CharSetToLCD(uint8_t *, uint8_t *);
   void ResetAllIndex();
+  void printwc(const wchar_t);
+  uint8_t mbtowc(wchar_t *, char *, uint8_t);
 
   int symbol_index;//Индекс символа (от 0 до 7)
-  uint8_t cursor_col;
-  uint8_t cursor_row;
+  uint8_t cursor_col = 0;
+  uint8_t cursor_row = 0;
   //===Буквы====
   uint8_t index_rus_B;
   uint8_t index_rus_G;
