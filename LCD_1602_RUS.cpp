@@ -7,6 +7,8 @@ wchar_t *char_utf8 = L" ";
 LCD_1602_RUS :: LCD_1602_RUS(uint8_t lcd_Addr,uint8_t lcd_cols,uint8_t lcd_rows) : LiquidCrystal_I2C (lcd_Addr, lcd_cols, lcd_rows)
 {
    symbol_index = 0;
+   cursor_col = 0;
+   cursor_row = 0;
    ResetAllIndex();//Сброс значений индексов (неинициализированы = 255)
 }
 void LCD_1602_RUS::clear()
