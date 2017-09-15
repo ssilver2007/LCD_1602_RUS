@@ -6,9 +6,9 @@
 
 class LCD_1602_RUS : public LiquidCrystal_I2C {
 public:
-	LCD_1602_RUS(uint8_t, uint8_t, uint8_t);
-	void print(const wchar_t[]);
-	void print(const char[]);
+  LCD_1602_RUS(uint8_t, uint8_t, uint8_t);
+  void print(const wchar_t[]);
+  void print(const char[]);
   void print(int, int = DEC);
   void print(unsigned int, int = DEC);
   void print(long, int = DEC);
@@ -18,9 +18,9 @@ public:
   void print(unsigned char, int = BYTE);
   void print(double, int = 2);
   void clear();
-	void setCursor(uint8_t, uint8_t); 
-	uint8_t getCursorCol(); 
-	uint8_t getCursorRow(); 
+  void setCursor(uint8_t, uint8_t); 
+  uint8_t getCursorCol(); 
+  uint8_t getCursorRow(); 
   wchar_t *asciiutf8(unsigned char);
 
 private:
