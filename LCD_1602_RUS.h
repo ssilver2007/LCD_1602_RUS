@@ -1,12 +1,11 @@
 #include <LiquidCrystal_I2C.h>
 #include <Print.h>
 
-#define MAX_SYMBOL_COUNT 8  //Максимальное количество переназначаемых символов от 0 до 7
 #define BYTE 0
 
 class LCD_1602_RUS : public LiquidCrystal_I2C {
 public:
-  LCD_1602_RUS(uint8_t, uint8_t, uint8_t);
+  LCD_1602_RUS(uint8_t, uint8_t, uint8_t, uint8_t = 0);
   void print(const wchar_t[]);
   void print(const char[]);
   void print(int, int = DEC);
@@ -29,6 +28,7 @@ private:
   void printwc(const wchar_t);
   uint8_t mbtowc(wchar_t *, char *, uint8_t);
 
+  uint8_t max_symbol_count;  //Максимальное количество переназначаемых символов (по умолчанию 8: от 0 до 7)
   int symbol_index;//Индекс символа (от 0 до 7)
   uint8_t cursor_col;
   uint8_t cursor_row;

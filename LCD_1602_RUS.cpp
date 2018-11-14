@@ -4,8 +4,14 @@
 
 wchar_t char_utf8[] = L" ";
 
-LCD_1602_RUS :: LCD_1602_RUS(uint8_t lcd_Addr, uint8_t lcd_cols, uint8_t lcd_rows) : LiquidCrystal_I2C (lcd_Addr, lcd_cols, lcd_rows)
+//user_custom_symbols - количество символов, доступное пользователю для использования в своих целях (не более 8)
+//Всего переопределяемых символов в LCD - 8.
+//Символы с индексом от 0 до (7 - user_custom_symbols) используются библиотекой
+//Символы с индексом от (8 - user_custom_symbols) до 7 - можно переопределять пользователю
+//По умолчанию количество переопределяемых символов равно 0
+LCD_1602_RUS :: LCD_1602_RUS(uint8_t lcd_Addr, uint8_t lcd_cols, uint8_t lcd_rows, uint8_t user_custom_symbols) : LiquidCrystal_I2C (lcd_Addr, lcd_cols, lcd_rows)
 {
+  max_symbol_count = 8 - user_custom_symbols;
   symbol_index = 0;
   cursor_col = 0;
   cursor_row = 0;
@@ -123,7 +129,7 @@ void LCD_1602_RUS::CharSetToLCD(uint8_t *array, uint8_t *index)
     //Запомианем, что букве соответствует определенный индекс
     *index = symbol_index;
     symbol_index++;
-    if (symbol_index >= MAX_SYMBOL_COUNT)
+    if (symbol_index >= max_symbol_count)
     {
       symbol_index = 0;
       ResetAllIndex();
