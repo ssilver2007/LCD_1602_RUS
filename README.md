@@ -13,6 +13,8 @@ Arduino LCD 16x02 display with I2C interface RUSSIAN with NO CYRILLIC symbols se
 
 HelloWorld - простой пример вывода кириллических символов на LCD экран
 
+HelloWorldCustom - пример вывода задаваемых пользователем и кириллических символов на LCD  экран
+
 SerialToLCD - Ввод символов (в т.ч. кириллических) с монитора порта и их вывод на LCD экран
 
 (c) Сергей Сироткин
