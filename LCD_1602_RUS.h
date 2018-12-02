@@ -9,14 +9,17 @@
 #include <Print.h>
 
 #define BYTE 0
-#ifndef memcpy_PF(dest, src, len)
-  #define memcpy_PF(dest, src, len) memcpy((dest), (src), (len))
-#endif
 #ifdef ARDUINO_ARCH_STM32
   typedef uint8_t* uint_farptr_t;
+  #ifndef memcpy_PF(dest, src, len)
+    #define memcpy_PF(dest, src, len) memcpy((dest), (src), (len))
+  #endif
 #endif
 #ifdef ESP8266
   typedef uint8_t* uint_farptr_t;
+  #ifndef memcpy_PF(dest, src, len)
+    #define memcpy_PF(dest, src, len) memcpy((dest), (src), (len))
+  #endif
 #endif
 
 class LCD_1602_RUS : public LiquidCrystal_I2C {
