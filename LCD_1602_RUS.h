@@ -1,7 +1,23 @@
+#if defined(ARDUINO) && ARDUINO >= 100
+  #include "Arduino.h"
+#else
+  #include "WProgram.h"
+#endif 
+
+#include <avr/pgmspace.h>
 #include <LiquidCrystal_I2C.h>
 #include <Print.h>
 
 #define BYTE 0
+#ifndef memcpy_PF(dest, src, len)
+  #define memcpy_PF(dest, src, len) memcpy((dest), (src), (len))
+#endif
+#ifdef ARDUINO_ARCH_STM32
+  typedef uint8_t* uint_farptr_t;
+#endif
+#ifdef ESP8266
+  typedef uint8_t* uint_farptr_t;
+#endif
 
 class LCD_1602_RUS : public LiquidCrystal_I2C {
 public:
