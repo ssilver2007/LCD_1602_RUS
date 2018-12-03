@@ -12,14 +12,10 @@
 #include <Print.h>
 
 #define BYTE 0
-#ifdef ARDUINO_ARCH_STM32
-  typedef uint8_t* uint_farptr_t;
-  #ifndef memcpy_PF
-    #define memcpy_PF(dest, src, len) memcpy((dest), (src), (len))
-  #endif
-#endif
-#ifdef ESP8266
-  typedef uint8_t* uint_farptr_t;
+#ifdef ARDUINO_ARCH_AVR
+  typedef uint32_t _uint_farptr_t;
+#else
+  typedef uint8_t* _uint_farptr_t;
   #ifndef memcpy_PF
     #define memcpy_PF(dest, src, len) memcpy((dest), (src), (len))
   #endif
