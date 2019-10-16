@@ -1,3 +1,6 @@
+Внимание: новая объединенная версия библиотек для подключения экрана как по I2C, так и посредством 10 контактов:
+https://github.com/ssilver2007/LCD_1602_RUS_ALL
+
 # LCD_1602_RUS
 Arduino LCD 16x02 display with I2C interface RUSSIAN with NO CYRILLIC symbols set
 
