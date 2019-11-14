@@ -31,6 +31,4 @@ ssilver2007@rambler.ru
 
 Донат:
 
-Ethereum: 0x0A0B8C37146107a36053C3A1433f1C7Fd736eE58
-
 Bitcoin: 1L5DEgxYLu5Yigf1z4Nd9dVCVunH6iXRsi
